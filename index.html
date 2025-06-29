@@ -23,12 +23,12 @@
     <div class="head-data">
     <h1 id="head-1">HI, I’M <span style="color:#5A189A;">SUJITHA CHADALAVADA</span></h1>
     <h2 id="typing-text"></h2>
-    <button class="home-btn">Contact</button>
-    <button><a href="https://drive.google.com/file/d/1BdHNlAAj30BCqdZA10DjlSGyS8pE27lh/view?usp=sharing" id="download-b" target="_blank"> Download Resume</a></button>
+    <button id="contacts" class="home-btn">Contact</button>
+    <a href="https://drive.google.com/file/d/1BdHNlAAj30BCqdZA10DjlSGyS8pE27lh/view?usp=sharing" id="download-b" target="_blank" class="resume-btn"> View My_Resume</a>
     </div>
     <img src="PIC.png" alt="my photo" id="home-img">
     </div>
-    </section>
+    </section>  
     
     <section id="about">
      <h1 id="about-h1">About</h1>
@@ -126,7 +126,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contacts">
       <h1 class="skill-head">Contact Me!</h1>
       <p class="contact-p">Thank you for reaching out! Feel free to contact me using the form below or directly via the email.</p>
       <div class="contact-links">
@@ -134,14 +134,21 @@
       <a href="https://www.linkedin.com/in/chadalavada-sujitha-1b7620239/" target="_blank"><img src="linkedin.png" class="contact-img"></a>
       <a href="https://github.com/suji153" target="_blank"><img src="github.png" class="contact-img"></a>
       </div>
-          <form  class="contact-form" action="#" method="post">
-             <input type="text" placeholder="Your Name" id="form-input" required>
-             <input type="text" placeholder="Your Mail" id="form-input" required >
-             <textarea cols="94" row="5" id="text-input" placeholder="Your message" required></textarea>
+          <form  class="contact-form" action="https://formspree.io/f/xldnaqvy" method="post" onsubmit="showThankYou(event)">
+            <input type="hidden" name="_captcha" value="false">
+             <input type="text" name="name" placeholder="Your Name" id="form-input" required>
+             <input type="text" name="mail" placeholder="Your Mail" id="form-input" required >
+             <textarea cols="94" name="message" row="5" id="text-input" placeholder="Your message" required></textarea>
              <button class="contact-submit">Send</button>
           </form>
+          <!-- Thank You Message -->
+          <p id="thank-you-msg" style="display:none; color: green; font-size: 20px; margin-top: 10px; text-align: center;">
+            ✅ Thank you! Your message has been sent.
+          </p>
     </section>
-    <footer>Made with ❤️ Html, Css and Javascript</footer>
+    <footer class="footer">
+        <p>© 2025 Sujitha Chadalavada. Made ❤️ using HTML, CSS & JS.    </p>
+    </footer>
     <script>
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section");
@@ -166,6 +173,30 @@
       });
     });
   });
+</script>
+<script>
+  function showThankYou(event) {
+    event.preventDefault(); // Stop normal form submit
+    const form = event.target;
+
+    // Send the form manually using fetch
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        document.getElementById('thank-you-msg').style.display = 'block';
+        form.reset();
+      } else {
+        alert("Oops! Something went wrong.");
+      }
+    }).catch(error => {
+      alert("Error occurred! Please try again.");
+    });
+  }
 </script>
     <script src="script.js"></script>
 </body>
