@@ -77,6 +77,9 @@ a.nav-link:hover{
     background-color: rgb(224, 129, 218);
     color: white;
 }
+#typing-text{
+    margin-bottom: 50px;
+}
 #typing-text::after {
   content: '|';
   animation: blink 0.7s infinite;
@@ -85,7 +88,7 @@ a.nav-link:hover{
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-.home-btn{
+.contact-btn{
     padding: 10px;
     width: 15vh;
     border-radius: 5px;
@@ -93,6 +96,8 @@ a.nav-link:hover{
     font-size: 20px;
     border:  2px solid#c750bf;
     background-color: rgb(243, 208, 237);
+    text-decoration: none;
+    color: black;
 }
 .resume-btn{
     text-decoration: none;
@@ -116,7 +121,7 @@ a.nav-link:hover{
 #btn{
     margin-left: 40px;
 }
-.home-btn:hover{
+.contact-btn:hover{
     background-color: rgb(224, 129, 218);;
     color: white;
     box-shadow: 0 0 20px rgb(224, 129, 218), 0 0 40px rgb(224, 129, 218), 0 0 60px rgb(224, 129, 218);
@@ -132,7 +137,7 @@ a.nav-link:hover{
 #about-h1{
     text-align: center;
     font-size: 60px;    
-    margin: 0;
+    margin-bottom: 80px;
 }
 p{
    font-size: 25px;
@@ -141,9 +146,6 @@ p{
    padding-left: 50px;
 }
 
-button,.resume-btn{
-    margin-top: 40px;
-}
 
 /*style_projects*/
 .card-container{
