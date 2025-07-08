@@ -296,6 +296,17 @@ textarea::placeholder{
     text-align: center;
     font-size: 15px;
 }
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
 
 
 
